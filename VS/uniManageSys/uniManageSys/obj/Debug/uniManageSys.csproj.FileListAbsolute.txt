@@ -62,3 +62,10 @@ C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.WebP
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\obj\Debug\uniManageSys.csprojResolveAssemblyReference.cache
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\obj\Debug\uniManageSys.dll
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\obj\Debug\uniManageSys.pdb
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\Antlr3.Runtime.pdb
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebMatrix.Data.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebMatrix.WebData.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.Helpers.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebMatrix.Data.xml
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebMatrix.WebData.xml
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.Helpers.xml
