@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -18,7 +19,7 @@ namespace uniManageSys.Controllers
                 return View();
             else
             {
-                return RedirectToAction("yes");
+                return View("_LoginPartial");
             }
         }
 
@@ -29,18 +30,8 @@ namespace uniManageSys.Controllers
             if (string.Equals(data.UserName, admin.UserName) && string.Equals(data.Password, admin.Password))
             {
                 Session["admin"] = admin.UserName;
-                return RedirectToAction("yes");
+                return View("_LoginPartial");
             }
-            else
-            {
-                return View();
-            }
-        }
-
-        public ActionResult yes()
-        {
-            if (Session["admin"] == null)
-                return RedirectToAction("Login");
             else
             {
                 return View();
@@ -52,5 +43,28 @@ namespace uniManageSys.Controllers
             Session["admin"] = null;
             return RedirectToAction("Login");
         }
+
+        
+        public ActionResult Changepassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Changepassword(String newPassword,string oldPassword)
+        {
+            var data= db.Admins.Single(x => x.Id == 1);
+            if (string.Equals(oldPassword, data.Password))
+            {
+                data.Password = newPassword;
+                UpdateModel(data);
+                db.SaveChanges();
+                Session["admin"] = null;
+                return RedirectToAction("Login");
+            }
+            else 
+            return View();
+        }
+
     }
 }

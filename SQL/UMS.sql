@@ -7,10 +7,10 @@ dbcc checkident('Admin',reseed,0)
 insert into Admin(UserName,Password) values('admin','admin')
 
 alter table Admin
-drop column  Password
+drop column  Id
 
 alter table Admin
-add Id int identity(1,1)
+add falto int
 
 
 alter table Admin
