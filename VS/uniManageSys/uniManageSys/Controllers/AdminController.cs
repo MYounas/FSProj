@@ -19,7 +19,7 @@ namespace uniManageSys.Controllers
                 return View();
             else
             {
-                return View("_LoginPartial");
+                return RedirectToAction("AdminDashboard", "Dashboard"); ;
             }
         }
 
@@ -30,7 +30,7 @@ namespace uniManageSys.Controllers
             if (string.Equals(data.UserName, admin.UserName) && string.Equals(data.Password, admin.Password))
             {
                 Session["admin"] = admin.UserName;
-                return View("_LoginPartial");
+                return RedirectToAction("AdminDashboard", "Dashboard");
             }
             else
             {
@@ -43,7 +43,6 @@ namespace uniManageSys.Controllers
             Session["admin"] = null;
             return RedirectToAction("Login");
         }
-
         
         public ActionResult Changepassword()
         {
@@ -64,6 +63,44 @@ namespace uniManageSys.Controllers
             }
             else 
             return View();
+        }
+
+        public ActionResult addStudent()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult addStudent(Student student)
+        {
+            db.Students.AddOrUpdate(student);
+            db.SaveChanges();
+            return RedirectToAction("AdminDashboard", "Dashboard");
+        }
+
+        public ActionResult addTeacher()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult addTeacher(Teacher teacher)
+        {
+            db.Teachers.AddOrUpdate(teacher);
+            db.SaveChanges();
+            return RedirectToAction("AdminDashboard", "Dashboard");
+        }
+
+        public ActionResult AllRegisterStudents()
+        {
+            IEnumerable<Student> allStudents = db.Students;
+            return View(allStudents);
+        }
+
+        public ActionResult AllRegisterTeachers()
+        {
+            IEnumerable<Teacher> allTeachers = db.Teachers;
+            return View(allTeachers);
         }
 
     }

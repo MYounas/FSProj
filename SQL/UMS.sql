@@ -1,6 +1,10 @@
 select * from Admin
+select * from Student
+select * from Teacher
 
 delete from Admin
+delete from Student
+delete from Teacher
 
 dbcc checkident('Admin',reseed,0)
 
@@ -16,8 +20,23 @@ add falto int
 alter table Admin
 add Password nvarchar(10)
 
+CREATE TABLE Student (
+Id INT NOT NULL identity(1,1) PRIMARY KEY,
+fullName nvarchar(50) not null,
+userName nvarchar(50) not null,
+Email nvarchar(50) not null,
+Password nvarchar(50) not null,
+confirmPassword nvarchar(50) not null
+)
 
-
+CREATE TABLE Teacher (
+Id INT NOT NULL identity(1,1) PRIMARY KEY,
+fullName nvarchar(50) not null,
+userName nvarchar(50) not null,
+Email nvarchar(50) not null,
+Password nvarchar(50) not null,
+confirmPassword nvarchar(50) not null
+)
 
 
 

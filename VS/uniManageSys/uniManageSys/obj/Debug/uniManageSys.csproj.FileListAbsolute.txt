@@ -69,3 +69,5 @@ C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.Help
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebMatrix.Data.xml
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebMatrix.WebData.xml
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.Helpers.xml
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\GridMvc.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebGridMvc.dll
