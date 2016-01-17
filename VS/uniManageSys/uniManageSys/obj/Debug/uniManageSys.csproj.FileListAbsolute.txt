@@ -59,7 +59,6 @@ C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.Razo
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.WebPages.xml
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.WebPages.Deployment.xml
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.WebPages.Razor.xml
-C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\obj\Debug\uniManageSys.csprojResolveAssemblyReference.cache
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\obj\Debug\uniManageSys.dll
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\obj\Debug\uniManageSys.pdb
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\Antlr3.Runtime.pdb

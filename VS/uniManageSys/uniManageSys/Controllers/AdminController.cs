@@ -50,12 +50,12 @@ namespace uniManageSys.Controllers
         }
 
         [HttpPost]
-        public ActionResult Changepassword(String newPassword,string oldPassword)
+        public ActionResult Changepassword(upPassword updatePass)
         {
             var data= db.Admins.Single(x => x.Id == 1);
-            if (string.Equals(oldPassword, data.Password))
+            if (string.Equals(updatePass.oldPassword, data.Password))
             {
-                data.Password = newPassword;
+                data.Password = updatePass.newPassword;
                 UpdateModel(data);
                 db.SaveChanges();
                 Session["admin"] = null;

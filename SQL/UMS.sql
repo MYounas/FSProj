@@ -39,9 +39,11 @@ confirmPassword nvarchar(50) not null
 )
 
 
+alter table Student add confirmPassword nvarchar(50)
 
+alter table Teacher add confirmPassword nvarchar(50)
 
-
+update Teacher set confirmPassword='111111' where Id=1
 
 
 
