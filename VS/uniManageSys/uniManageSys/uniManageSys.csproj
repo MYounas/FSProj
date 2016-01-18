@@ -264,8 +264,10 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\ubit-icon.ico" />
     <Content Include="Images\ubit-logo.jpg" />
     <Content Include="JsValidation\RegisterMember.js" />
+    <None Include="Properties\PublishProfiles\Uni_manag_sys.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
@@ -312,6 +314,8 @@
     <Content Include="Views\Admin\AllRegisterTeachers.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Admin\EditStudent.cshtml" />
+    <Content Include="Views\Admin\EditTeacher.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

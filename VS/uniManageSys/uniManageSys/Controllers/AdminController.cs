@@ -103,5 +103,34 @@ namespace uniManageSys.Controllers
             return View(allTeachers);
         }
 
+        public ActionResult EditStudent(int Id)
+        {
+            var data = db.Students.Single(x => x.Id == Id);
+            return View(data);
+        }
+
+        [HttpPost]
+        public ActionResult EditStudent(Student student)
+        {
+            db.Students.AddOrUpdate(student);
+            db.SaveChanges();
+            return View("EditStudent");
+        }
+
+        public ActionResult EditTeacher(int Id)
+        {
+            var data = db.Teachers.Single(x => x.Id == Id);
+            return View(data);
+        }
+
+        [HttpPost]
+        public ActionResult EditTeacher(Teacher teacher)
+        {
+            db.Teachers.AddOrUpdate(teacher);
+            db.SaveChanges();
+            return View("EditTeacher");
+        }
+
+        
     }
 }

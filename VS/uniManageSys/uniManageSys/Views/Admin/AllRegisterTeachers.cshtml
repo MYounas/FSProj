@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<uniManageSys.Models.Teacher>
 
 @{
-    ViewBag.Title = "All Users";
+    ViewBag.Title = "All Teachers";
 }
 
 @using GridMvc.Html
+@using GridMvc.Sorting
 
 <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
 <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -19,7 +20,7 @@
     <div class="clearfix"></div>
 
     <fieldset>
-        <legend class="legend">All Users</legend>
+        <legend class="legend">All Teachers</legend>
 
         <div class="panel">
 
@@ -30,16 +31,13 @@
                 </div>
                 <div style="margin-top: 10px"></div>
                 @Html.Grid(Model).Columns(columns =>
-                    {
-                        columns.Add(c => c.Id).Titled("Id").Encoded(false)
-     .Sanitized(false).SetWidth(50);
-                        columns.Add(c => c.userName).Titled("userName").Filterable(true).Encoded(false)
-    .Sanitized(false).SetWidth(50);
-                        columns.Add(c => c.Email).Titled("Email").Filterable(true).Encoded(false)
-        .Sanitized(false).SetWidth(50);
-                    })
+                {
+                    columns.Add().RenderValueAs(c =>@<b>@Html.ActionLink("Edit", "EditTeacher", "Admin", new { c.Id }, null)</b>);
+                    columns.Add(c => c.userName).Titled("userName").Filterable(true);
+                }).Sortable()
 
             </div>
         </div>
     </fieldset>
+
 </div>

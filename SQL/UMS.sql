@@ -45,14 +45,15 @@ alter table Teacher add confirmPassword nvarchar(50)
 
 update Teacher set confirmPassword='111111' where Id=1
 
+alter table Student add Phone nvarchar(50)
+alter table Student add Field nvarchar(50)
+alter table Student add Gender nvarchar(50)
 
+alter table Teacher add Phone nvarchar(50)
+alter table Teacher add Field nvarchar(50)
+alter table Teacher add Gender nvarchar(50)
 
-
-
-
-
-
-
+alter table Teacher drop column Field
 
 USE [master]
 GO

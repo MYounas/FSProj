@@ -16,14 +16,19 @@ namespace uniManageSys.Models
         [Required]
         public string userName { get; set; }
         [Required]
-        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$",ErrorMessage = "Provide Valid Email")]
+        //[RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$",ErrorMessage = "Provide Valid Email")]
         public string Email { get; set; }
         [Required]
-        [StringLength(10, MinimumLength = 6)]
-        [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,50}$")]
+        //[StringLength(10, MinimumLength = 6)]
+        //[RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,50}$")]
         public string Password { get; set; }
         [Required]
         [Compare("Password")]
         public string confirmPassword { get; set; }
+        [Required]
+        public string Gender { get; set; }
+        [Required]
+        //[StringLength(13,MinimumLength = 11)]
+        public string Phone { get; set; }
     }
 }

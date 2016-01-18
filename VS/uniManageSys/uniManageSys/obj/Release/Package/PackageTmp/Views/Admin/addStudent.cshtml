@@ -1,0 +1,126 @@
+﻿@model uniManageSys.Models.Student
+@{
+    ViewBag.Title = "Register";
+}
+@using uniManageSys.Models
+
+<script src="~/Scripts/jquery-2.2.0.js"></script>
+
+<script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+<link href="~/Scripts/jquery-ui.min.css" rel="stylesheet" />
+
+<script src="~/bootstrap/js/bootstrap.min.js"></script>
+<link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-2.2.0.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />
+
+<script type="text/javascript">
+        $.noConflict();
+</script>
+
+<div class="container">
+
+    <div class="logo col-sm-12 text-center col-md-12 "> <img alt="" src="~/Images/ubit-logo.jpg" /></div>
+
+    <div class="clearfix"></div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <fieldset>
+            <legend class="legend">Register</legend>
+
+            <div class="panel">
+
+                <div class="panel-body">
+
+                    <br />
+
+                    <div class="col-md-6 col-sm-6">
+                        <div class="row">
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    Full Name
+                                </div>
+
+                                <div class="col-md-6 col-sm-6">
+                                    @Html.TextBoxFor(m => m.fullName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.fullName)
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    User Name
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.userName)
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    EmailID
+                                </div>
+
+                                <div class="col-md-6 col-sm-6">
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Email)
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    Password
+                                </div>
+
+                                <div class="col-md-6 col-sm-6">
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Password)
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    Confirm Password
+                                </div>
+
+                                <div class="col-md-6 col-sm-6">
+
+                                    @Html.PasswordFor(m => m.confirmPassword, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.confirmPassword)
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input id="Submit" class="btn btn-success" name="actionType" type="submit" value="Save" />
+                            <input type="reset" value="Reset" class="btn btn-danger"/>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </fieldset>
+    }
+</div>

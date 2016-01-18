@@ -70,3 +70,4 @@ C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebMatrix.WebDa
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.Helpers.xml
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\GridMvc.dll
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebGridMvc.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\obj\Debug\uniManageSys.csprojResolveAssemblyReference.cache

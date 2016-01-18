@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Register";
 }
+@using System.Net.Mime
 @using uniManageSys.Models
 
 <script src="~/Scripts/jquery-2.2.0.js"></script>
@@ -39,7 +40,7 @@
 
                     <br />
 
-                    <div class="col-md-6 col-sm-6">
+                    <div class="col-md-6 col-sm-12">
                         <div class="row">
 
                             <div class="form-group">
@@ -72,17 +73,9 @@
                                 <div class="col-md-6 col-sm-6">
                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Email)
-
                                 </div>
 
                             </div>
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-
-                        <div class="row">
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6">
                                     Password
@@ -102,8 +95,57 @@
 
                                 <div class="col-md-6 col-sm-6">
 
-                                    @Html.PasswordFor(m => m.confirmPassword, new { @class = "form-control" })
+                                    @Html.PasswordFor(m => m.confirmPassword, new {@class = "form-control"})
                                     @Html.ValidationMessageFor(m => m.confirmPassword)
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    Phone
+                                </div>
+
+                                <div class="col-md-6 col-sm-6">
+
+                                    @Html.TextBoxFor(m => m.Phone, new {@class = "form-control"})
+                                    @Html.ValidationMessageFor(m => m.Phone)
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    Field
+                                </div>
+
+                                <div class="col-md-6 col-sm-6">
+                                    @Html.DropDownListFor(m=>m.Field,new List<SelectListItem>
+                                    {
+                                        new SelectListItem {Text = "BSSE",Value = "BSSE"},
+                                        new SelectListItem {Text = "BSCS",Value = "BSCS"},
+                                        new SelectListItem {Text = "MCS",Value = "MCS"}
+                                    },"Select Field", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Field)
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6">
+                                    Gender
+                                </div>
+
+                                <div class="col-md-6 col-sm-6">
+
+                                    @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                                    {
+                                        new SelectListItem {Text = "Male",Value = "Male"},
+                                        new SelectListItem {Text = "FeMale",Value = "FeMale"}
+                                    },"Select Gender", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.Gender)
                                 </div>
 
                             </div>
