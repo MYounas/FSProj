@@ -8,19 +8,22 @@
 
 <link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
 <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-2.2.0.js"></script>
 <script src="~/Scripts/jquery-2.2.0.min.js"></script>
 <script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
-<link href="~/Content/Site.css" rel="stylesheet"/>
+<link href="~/Content/Site.css" rel="stylesheet" />
 
 <div class="container">
- <div class="logo col-sm-12 text-center col-md-12 "> <img alt=""  src="~/Images/ubit-logo.jpg" /></div>
+    <div class="logo col-sm-12 text-center col-md-12 ">
+        <img alt="" src="~/Images/ubit-logo.jpg" />
+    </div>
 
-<div class="clearfix"></div>
+    <div class="clearfix"></div>
 
     <fieldset>
         <legend class="legend">All Students</legend>
 
-        <div class="panel">
+        <div class="panel col-md-7">
 
             <div class="panel-body">
 
@@ -28,16 +31,30 @@
                     @Html.ActionLink("Add Student", "addStudent", "Admin", new { @class = "btn btn-info btn-pressure" })
                 </div>
                 <div style="margin-top: 10px"></div>
-                @Html.Grid(Model).Columns(columns =>
+                @Html.Grid(Model).Named("callPartial").Columns(columns =>
            {
-               columns.Add().RenderValueAs(c =>@<b>@Html.ActionLink("Edit", "EditStudent", "Admin", new { c.Id }, null)</b>);
-               columns.Add().RenderValueAs(c =>@<b>@Html.ActionLink("Delete", "DeleteStudent", "Admin", new { c.Id }, null)</b>);
+           columns.Add().SetWidth(10).RenderValueAs(c =>@<b>@Html.ActionLink("Edit", "EditStudent", "Admin", new { c.Id }, null)</b>);
+           columns.Add().RenderValueAs(c =>@<b>@Html.ActionLink("Delete", "DeleteStudent", "Admin", new { c.Id }, new { @onclick = "return confirm('Are You Sure?');" })</b>);
                columns.Add(c => c.userName).Titled("userName").Filterable(true);
                columns.Add(c => c.Field).Titled("Field").Filterable(true);
            }).Sortable()
-
+            </div>
+        </div>
+        <div class="col-md-1">@*Gap*@</div>
+        <div class="panel col-md-4">
+            <div class="panel-body" id="showContent">
+                @*Show Data Here*@
+                <b>Select Any Student to Show Data</b>
             </div>
         </div>
     </fieldset>
 
 </div>
+
+<script>
+    $(function () {
+        pageGrids.callPartial.onRowSelect(function (e) {
+            $.post("@Url.Action("ShowStudent", "Admin")", { userName: e.row.userName }, function (data) { $("#showContent").html(data)});
+        });
+    });
+</script>

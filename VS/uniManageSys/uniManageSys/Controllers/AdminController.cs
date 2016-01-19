@@ -43,7 +43,7 @@ namespace uniManageSys.Controllers
             Session["admin"] = null;
             return RedirectToAction("Login");
         }
-        
+
         public ActionResult Changepassword()
         {
             return View();
@@ -52,7 +52,7 @@ namespace uniManageSys.Controllers
         [HttpPost]
         public ActionResult Changepassword(upPassword updatePass)
         {
-            var data= db.Admins.Single(x => x.Id == 1);
+            var data = db.Admins.Single(x => x.Id == 1);
             if (string.Equals(updatePass.oldPassword, data.Password))
             {
                 data.Password = updatePass.newPassword;
@@ -61,8 +61,8 @@ namespace uniManageSys.Controllers
                 Session["admin"] = null;
                 return RedirectToAction("Login");
             }
-            else 
-            return View();
+            else
+                return View();
         }
 
         public ActionResult addStudent()
@@ -131,6 +131,35 @@ namespace uniManageSys.Controllers
             return View("EditTeacher");
         }
 
-        
+        public ActionResult DeleteStudent(int Id)
+        {
+            var data = db.Students.Find(Id);
+            db.Students.Remove(data);
+            db.SaveChanges();
+            return RedirectToAction("AllRegisterStudents");
+        }
+
+        public ActionResult DeleteTeacher(int Id)
+        {
+            var data = db.Teachers.Find(Id);
+            db.Teachers.Remove(data);
+            db.SaveChanges();
+            return RedirectToAction("AllRegisterTeachers");
+        }
+
+        [HttpPost]
+        public ActionResult ShowStudent(string userName)
+        {
+            var data = db.Students.Single(x => x.userName == userName);
+            return View(data);
+        }
+
+        [HttpPost]
+        public ActionResult ShowTeacher(string userName)
+        {
+            var data = db.Teachers.Single(x => x.userName == userName);
+            return View(data);
+        }
+
     }
 }

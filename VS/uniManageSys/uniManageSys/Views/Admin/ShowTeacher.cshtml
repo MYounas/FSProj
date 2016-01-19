@@ -1,0 +1,49 @@
+﻿@model uniManageSys.Models.Teacher
+
+@{
+    ViewBag.Title = "ShowTeacher";
+    Layout = null;
+}
+
+<h2>@Model.userName's Data</h2>
+
+<fieldset>
+    <legend>Teacher</legend>
+
+    <div class="display-label">
+        <b>@Html.DisplayNameFor(model => model.fullName)</b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.fullName)
+    </div>
+
+    <div class="display-label">
+        <b>@Html.DisplayNameFor(model => model.userName)</b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.userName)
+    </div>
+
+    <div class="display-label">
+        <b>@Html.DisplayNameFor(model => model.Email)</b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+        <b>@Html.DisplayNameFor(model => model.Gender)</b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div class="display-label">
+        <b>@Html.DisplayNameFor(model => model.Phone)</b>
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+</fieldset>
+
+
