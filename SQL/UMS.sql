@@ -55,6 +55,21 @@ alter table Teacher add Gender nvarchar(50)
 
 alter table Teacher drop column Field
 
+
+alter table Student add DateOfBirth nvarchar(50)
+
+
+
+
+
+
+
+
+
+
+
+
+
 USE [master]
 GO
 

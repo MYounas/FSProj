@@ -70,3 +70,9 @@ C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebMatrix.WebDa
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.Helpers.xml
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\GridMvc.dll
 C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\WebGridMvc.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\Microsoft.Web.Helpers.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\obj\Debug\uniManageSys.csprojResolveAssemblyReference.cache
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\Glimpse.AspNet.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\Glimpse.Core.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\Glimpse.Mvc4.dll
+C:\Users\MYounas\Desktop\FSProj\VS\uniManageSys\uniManageSys\bin\System.Web.Optimization.xml

@@ -32,6 +32,8 @@ namespace uniManageSys.Models
         [Required]
         //[StringLength(13,MinimumLength = 11)]
         public string Phone { get; set; }
+        [Required]
+        public string DateOfBirth { get; set; }
 
     }
 }

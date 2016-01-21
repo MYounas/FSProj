@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json.Linq;
 using uniManageSys.Models;
 using WebMatrix.WebData;
 
@@ -34,6 +36,7 @@ namespace uniManageSys.Controllers
             }
             else
             {
+                ViewBag.Error = "Name or Pass incorent!";
                 return View();
             }
         }
@@ -73,9 +76,24 @@ namespace uniManageSys.Controllers
         [HttpPost]
         public ActionResult addStudent(Student student)
         {
-            db.Students.AddOrUpdate(student);
-            db.SaveChanges();
-            return RedirectToAction("AdminDashboard", "Dashboard");
+            var responce = Request["g-recaptcha-response"];
+            string secretKey = "6LdeyhUTAAAAAPm5v2eh-CafSM56oc8dsTHLtWkE";
+            var client = new WebClient();
+            var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, responce));
+            var obj = JObject.Parse(result);
+            var status = (bool)obj.SelectToken("success");
+            ViewBag.Message = status ? "Google recapcja success" : "Failed";
+            if (status)
+            {
+                db.Students.AddOrUpdate(student);
+                db.SaveChanges();
+                return RedirectToAction("AdminDashboard", "Dashboard");
+            }
+            else
+            {
+                ViewBag.Message = "Check This Box If u r not robot!:P";
+                return View();
+            }
         }
 
         public ActionResult addTeacher()
