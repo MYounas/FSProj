@@ -58,9 +58,9 @@ alter table Teacher drop column Field
 
 alter table Student add DateOfBirth nvarchar(50)
 
+alter table Student add ImageUrl nvarchar(50)
 
-
-
+alter table Student drop column ImageUrl
 
 
 

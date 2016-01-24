@@ -20,7 +20,7 @@
 <link href="~/Content/Site.css" rel="stylesheet" />
 
 <script type="text/javascript">
-        $.noConflict();
+    $.noConflict();
 </script>
 
 <div class="container">
@@ -31,9 +31,10 @@
 
     @using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
-        <fieldset>
-            <legend class="legend">Register</legend>
+                    @Html.AntiForgeryToken()
+                    <fieldset>
+            
+                        <legend class="legend">Register</legend>
 
             <div class="panel">
 
@@ -50,7 +51,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-sm-6">
-                                    @Html.TextBoxFor(m => m.fullName, new {@class = "form-control"})
+                                    @Html.TextBoxFor(m => m.fullName, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.fullName)
 
                                 </div>
@@ -61,7 +62,7 @@
                                     User Name
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    @Html.TextBoxFor(m => m.userName, new {@class = "form-control"})
+                                    @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.userName)
                                 </div>
 
@@ -72,7 +73,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-sm-6">
-                                    @Html.TextBoxFor(m => m.Email, new {@class = "form-control"})
+                                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Email)
                                 </div>
 
@@ -83,7 +84,7 @@
                                 </div>
 
                                 <div class="col-md-6 col-sm-6">
-                                    @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
+                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Password)
                                 </div>
 
@@ -96,7 +97,7 @@
 
                                 <div class="col-md-6 col-sm-6">
 
-                                    @Html.PasswordFor(m => m.confirmPassword, new {@class = "form-control"})
+                                    @Html.PasswordFor(m => m.confirmPassword, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.confirmPassword)
                                 </div>
 
@@ -109,7 +110,7 @@
 
                                 <div class="col-md-6 col-sm-6">
 
-                                    @Html.TextBoxFor(m => m.Phone, new {@class = "form-control"})
+                                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Phone)
                                 </div>
 
@@ -127,7 +128,7 @@
                                         new SelectListItem {Text = "BSSE", Value = "BSSE"},
                                         new SelectListItem {Text = "BSCS", Value = "BSCS"},
                                         new SelectListItem {Text = "MCS", Value = "MCS"}
-                                    }, "Select Field", new {@class = "form-control"})
+                                    }, "Select Field", new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Field)
                                 </div>
 
@@ -145,7 +146,7 @@
                                     {
                                         new SelectListItem {Text = "Male", Value = "Male"},
                                         new SelectListItem {Text = "FeMale", Value = "FeMale"}
-                                    }, "Select Gender", new {@class = "form-control"})
+                                    }, "Select Gender", new { @class = "form-control" })
                                     @Html.ValidationMessageFor(m => m.Gender)
                                 </div>
 
@@ -157,7 +158,9 @@
                                 </div>
 
                                 <div class="col-md-6 col-sm-6">
-                                    @Html.TextBoxFor(m => m.DateOfBirth, String.Format("0:d"), new {@class = "form-control", type = "date"})
+                                    @Html.TextBoxFor(m => m.DateOfBirth, String.Format("0:d"), new { @class = "form-control", type = "date" })
+                                    @*check thiis for Image
+                                    @Html.TextBoxFor(m=>m.ImageUrl,new {@class="form-control",type="file"})*@
                                     @Html.ValidationMessageFor(m => m.DateOfBirth)
                                 </div>
                             </div>
@@ -166,13 +169,21 @@
                     </div>
 
                     <div class="col-md-6 col-sm-6">
+
+                        <img id="img" src="" alt="Upload Image"/>
+                        @Html.TextBoxFor(m => m.ImageUrl, new { @class = "form-control btn btn-info", type = "file",name="file",id="inImg",onchange="loadImg(this);",accept="image/*" })
+                        @Html.ValidationMessageFor(model=>model.ImageUrl)
+                        @*<input name="file" id="inImg" type="file" onchange="loadimg(this);" accept="image/*" class="form-control btn btn-info" required/>*@
+
+                        @*<p style="color: red; font-weight: bold;"></p>*@
+
                         <div class="g-recaptcha" data-sitekey="6LdeyhUTAAAAAGIuNu5ZeVKk84c5FKxXst4AYxLZ"></div>
-                            <br/><b style="color: red;">@ViewBag.Message</b>
+                        <br/><b style="color: red;">@ViewBag.Message</b>
                     </div>
 
                     <div class="row">
                         <div class="col-md-12">
-                            <input id="Submit" class="btn btn-success" name="actionType" type="submit" value="Save" />
+                                <input id="Submit" class="btn btn-success" name="actionType" type="submit" value="Save" />
                             <input type="reset" value="Reset" class="btn btn-danger"/>
                         </div>
                     </div>
@@ -183,3 +194,23 @@
         </fieldset>
     }
 </div>
+<script>
+
+    //$("#Submit").click("", function() {
+    //    if ($("#img").attr('src') == "") {
+    //        $("p").text("Please Upload Your Image");
+    //    }
+    //});
+
+    function loadImg(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#img').attr('src', e.target.result).width(150).height(150);
+            };
+            reader.readAsDataURL(input.files[0]);
+            //$("p").hide();
+        } 
+    }
+
+</script>
