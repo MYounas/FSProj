@@ -25,7 +25,12 @@
 
 <div class="container">
 
-    <div class="logo col-sm-12 text-center col-md-12 "> <img alt="" src="~/Images/ubit-logo.jpg" /></div>
+    <div class="logo col-sm-12 text-center col-md-12 "> <img alt="" src="~/Images/ubit-logo.jpg"/>
+    </div>
+    <div class="text-center col-lg-12 col-md-12 alert alert-warning">
+        @*<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>*@
+        @ViewBag.existMsg
+    </div>
 
     <div class="clearfix"></div>
 
@@ -159,8 +164,6 @@
 
                                 <div class="col-md-6 col-sm-6">
                                     @Html.TextBoxFor(m => m.DateOfBirth, String.Format("0:d"), new { @class = "form-control", type = "date" })
-                                    @*check thiis for Image
-                                    @Html.TextBoxFor(m=>m.ImageUrl,new {@class="form-control",type="file"})*@
                                     @Html.ValidationMessageFor(m => m.DateOfBirth)
                                 </div>
                             </div>
@@ -173,9 +176,6 @@
                         <img id="img" src="" alt="Upload Image"/>
                         @Html.TextBoxFor(m => m.ImageUrl, new { @class = "form-control btn btn-info", type = "file",name="file",id="inImg",onchange="loadImg(this);",accept="image/*" })
                         @Html.ValidationMessageFor(model=>model.ImageUrl)
-                        @*<input name="file" id="inImg" type="file" onchange="loadimg(this);" accept="image/*" class="form-control btn btn-info" required/>*@
-
-                        @*<p style="color: red; font-weight: bold;"></p>*@
 
                         <div class="g-recaptcha" data-sitekey="6LdeyhUTAAAAAGIuNu5ZeVKk84c5FKxXst4AYxLZ"></div>
                         <br/><b style="color: red;">@ViewBag.Message</b>
@@ -184,7 +184,7 @@
                     <div class="row">
                         <div class="col-md-12">
                                 <input id="Submit" class="btn btn-success" name="actionType" type="submit" value="Save" />
-                            <input type="reset" value="Reset" class="btn btn-danger"/>
+                                <input type="reset" value="Reset" class="btn btn-danger"/>
                         </div>
                     </div>
 
@@ -196,12 +196,6 @@
 </div>
 <script>
 
-    //$("#Submit").click("", function() {
-    //    if ($("#img").attr('src') == "") {
-    //        $("p").text("Please Upload Your Image");
-    //    }
-    //});
-
     function loadImg(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -209,7 +203,6 @@
                 $('#img').attr('src', e.target.result).width(150).height(150);
             };
             reader.readAsDataURL(input.files[0]);
-            //$("p").hide();
         } 
     }
 

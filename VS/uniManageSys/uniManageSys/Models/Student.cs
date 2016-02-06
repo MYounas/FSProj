@@ -34,8 +34,7 @@ namespace uniManageSys.Models
         public string Phone { get; set; }
         [Required]
         public string DateOfBirth { get; set; }
-        [Required]
-        public HttpPostedFileBase ImageUrl { get; set; }
-
+        //[Required]
+        public string ImageUrl { get; set; }
     }
 }

@@ -26,31 +26,36 @@
                     {
                         @Html.AntiForgeryToken()
 
-                        <div class="logo col-sm-12 text-center col-md-12 "> <img alt="" src="~/Images/ubit-logo.jpg"/>
+                        <div class="logo col-sm-12 text-center col-md-12 ">
+                            <img alt="" src="~/Images/ubit-logo.jpg" />
                         </div>
                         <div class="col-md-4 col-md-offset-4 col-xs-12">
-                            <div class="alert alert-danger">@ViewBag.Error</div>
-                            <div class="loginPage panel panel-info">
-                                <div class="form-group">
-                                    <span class=""><i class="glyphicon glyphicon-user"></i> User</span>
-                                    @Html.TextBoxFor(m => m.UserName, new {@class = "form-control"})
-                                    @Html.ValidationMessageFor(m => m.UserName)
-
-                                </div>
-                                <div class="form-group">
-                                    <span class=""><i class="glyphicon glyphicon-lock"></i> Password</span>
-                                    @Html.PasswordFor(m => m.Password, new {@class = "form-control"})
-                                    @Html.ValidationMessageFor(m => m.Password)
-
-                                </div>
-                                <div class="form-group">
-                                    <input id="BtnLogin" type="submit" class="btn btn-success btn-pressure" name="BtnLogin" value="Login"/>
-                                    <input id="BtnReset" type="reset" class="btn btn-info btn-pressure" name="BtnReset" value="Reset"/>
-
-                                </div>
+                            <div class="alert alert-info">
+                                @*<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>*@
+                                @ViewBag.Error
+                            </div>
+                        <div class="loginPage panel panel-info">
+                            <div class="form-group">
+                                @*<span class=""><i class="glyphicon glyphicon-user"></i> UserName</span>*@
+                                @Html.LabelFor(m => m.UserName, new { @class = "glyphicon glyphicon-user" })
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.UserName)
 
                             </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, new { @class = "glyphicon glyphicon-lock" })
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Password)
+
+                            </div>
+                            <div class="form-group">
+                                <input id="BtnLogin" type="submit" class="btn btn-info btn-pressure" name="BtnLogin" value="Login" />
+                                <input id="BtnReset" type="reset" class="btn btn-primary btn-pressure" name="BtnReset" value="Reset" />
+
+                            </div>
+
                         </div>
+                    </div>
                     }
 
                     <div class="clear"></div>

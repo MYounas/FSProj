@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Antlr.Runtime.Tree;
 using Newtonsoft.Json.Linq;
 using uniManageSys.Models;
 using WebMatrix.WebData;
@@ -83,12 +84,24 @@ namespace uniManageSys.Controllers
             var result = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secretKey, responce));
             var obj = JObject.Parse(result);
             var status = (bool)obj.SelectToken("success");
-            ViewBag.Message = status ? "Google recapcja success" : "Failed";
+            ViewBag.Message = status ? "" : "Failed";
+            status = true;
             if (status)
             {
-                db.Students.AddOrUpdate(student);
-                db.SaveChanges();
-                return RedirectToAction("AdminDashboard", "Dashboard");
+                bool ex_student = db.Students.Any(x => x.Email == student.Email||x.Phone==student.Phone);
+
+                if (ex_student == false)
+                {
+                    db.Students.AddOrUpdate(student);
+                    db.SaveChanges();
+                    return RedirectToAction("AdminDashboard", "Dashboard");
+                }
+                else
+                {
+                    ViewBag.existMsg = "Student is already Exist!;";
+                    return View();
+                }
+                
             }
             else
             {

@@ -165,6 +165,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601262007009_addproperty.cs" />
+    <Compile Include="Migrations\201601262007009_addproperty.Designer.cs">
+      <DependentUpon>201601262007009_addproperty.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601262026338_addanother.cs" />
+    <Compile Include="Migrations\201601262026338_addanother.Designer.cs">
+      <DependentUpon>201601262026338_addanother.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601262028322_phiradd.cs" />
+    <Compile Include="Migrations\201601262028322_phiradd.Designer.cs">
+      <DependentUpon>201601262028322_phiradd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601262031552_phiraddd.cs" />
+    <Compile Include="Migrations\201601262031552_phiraddd.Designer.cs">
+      <DependentUpon>201601262031552_phiraddd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601262033010_stringimage.cs" />
+    <Compile Include="Migrations\201601262033010_stringimage.Designer.cs">
+      <DependentUpon>201601262033010_stringimage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601262034123_httpimage.cs" />
+    <Compile Include="Migrations\201601262034123_httpimage.Designer.cs">
+      <DependentUpon>201601262034123_httpimage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\DbcsContext.cs" />
     <Compile Include="Models\Student.cs" />
@@ -338,7 +363,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Shared\_MainLayout.cshtml" />
@@ -356,7 +380,26 @@
     <Content Include="Views\Admin\ShowStudent.cshtml" />
     <Content Include="Views\Admin\ShowTeacher.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601262007009_addproperty.resx">
+      <DependentUpon>201601262007009_addproperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601262026338_addanother.resx">
+      <DependentUpon>201601262026338_addanother.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601262028322_phiradd.resx">
+      <DependentUpon>201601262028322_phiradd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601262031552_phiraddd.resx">
+      <DependentUpon>201601262031552_phiraddd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601262033010_stringimage.resx">
+      <DependentUpon>201601262033010_stringimage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601262034123_httpimage.resx">
+      <DependentUpon>201601262034123_httpimage.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
